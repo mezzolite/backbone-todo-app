@@ -20,8 +20,10 @@ const TaskView = Backbone.View.extend({
     },
     complete: function(event){
         $('.completed-todo-ul').append($(event.target).parent())
-        $('.complete-task').remove()
-        
+        $(event.target).remove()
+        console.log(tasks)
+        tasks.remove(this.model)
+        console.log(tasks)
 
     },
     render: function(){
@@ -58,7 +60,6 @@ $(document).ready(function(){
         })
         $('#task-title').val('')
         $('#task-due-date').val('')
-        console.log(task.toJSON())
         tasks.add(task)
     })
 })
